@@ -1,5 +1,4 @@
 from pyspark.sql import SparkSession
-from datetime import datetime
 import json
 from pyspark.ml.regression import LinearRegression
 from pyspark.ml.feature import VectorAssembler
@@ -12,19 +11,19 @@ sc = spark.sparkContext
 def get_data(line):
     data = json.loads(line)
     data["_id"] = data["_id"]["$oid"]
-    data['unplug_hourTime'] = datetime.strptime(data['unplug_hourTime']['$date'], "%Y-%m-%dT%H:%M:%S.%f%z")
+#    data['unplug_hourTime'] = datetime.strptime(data['unplug_hourTime']['$date'], "%Y-%m-%dT%H:%M:%S.%f%z")
     return data
 
-a = sys.argv[1]
-b = sys.argv[2]
-c = sys.argv[3]
+dirs = []
+with open(sys.argv[1]) as f:
+    lines = f.readlines()
+    for line in lines:
+        dirs.append(line[:-1])
 
 print("INICIO")
 
 dfs = []
-n = len(sys.argv)
-for i in range(n-1):
-    a = sys.argv[i+1]
+for i,a in enumerate(dirs):
     rdd = sc.textFile(a).map(get_data)
     df = spark.createDataFrame(rdd)
     dfs.append(df)
