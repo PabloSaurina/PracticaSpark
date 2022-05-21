@@ -10,7 +10,7 @@ Este jupyter-notebook de Python contiene el proceso de análisis de datos, pero 
     • LR_cluster.py
 Este archivo de Python es el verdadero programa de la práctica, ya que replica el análisis hecho en el jupyter-notebook, pero esta vez no se limita a los archivos de prueba. Al ejecutar este archivo se ha de utilizar como argumento de entrada un archivo .txt que contenga las direcciones de las bases de datos que utilizaremos para el análisis de datos. En nuestro caso empleamos el archivo bases_de_datos.txt, que esta preparado para ejecutarse en el cluster, donde emplear grandes cantidades de datos es más rápido.
 
-Las imágenes que hay en el repositorio son capturas de pantalla de la ejecución de este archivo .py con bases_de_datos.txt como argumento de entrada.
+Las imágenes que hay en el repositorio, que estan guardadas en la carpeta 'Archivos', son capturas de pantalla de la ejecución de este archivo .py con bases_de_datos.txt como argumento de entrada.
 
 Datos empleados
 Los datos empleados en esta práctica los hemos obtenido de la página web de BiciMat en el enlace: https://opendata.emtmadrid.es/Datos-estaticos/Datos-generales-(1) . Para nuestro análisis hemos empleado los datos desde Enero de 2020 hasta Junio de 2021. Estos archivos los hemos subido a hadoop, y sus direcciones estan guardadas en bases_de_datos.txt (pues leemos este archivo en la ejecución del programa).
